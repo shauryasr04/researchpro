@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to ResearchPro!</title>
+  </head>
+  <body style="background-color: rgba(255, 238, 0, 0.349);">
+    {% extends "template.html" %}
+    {% block content %}
+    
+    <h1> Enter your Field and School of Choice! </h1>
+    <p> Enter your field and college of choice to get a list of 5-10 professors that you can contact for an internship!
+        <b>For any errors, please report to shauryasr059@gmail.com</b> </p>
+    <form action="/action_page">
+        <label for="fname">Field of Choice:</label><br>
+        <input type="text" id="ffield" name="ffield" value="Name of Field"><br>
+        <label for="lname">University of Choice:</label><br>
+        <input type="text" id="funiv" name="funiv" value="Name of University"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    {% endblock %}
+  </body>
+</html>
