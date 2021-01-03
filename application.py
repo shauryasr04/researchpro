@@ -1,7 +1,5 @@
 # application.py
-from flask import Flask, url_for
-from markupsafe import escape
-from flask import request
+from flask import Flask, url_for , request
 
 app = Flask(__name__)
 @app.route('/')
