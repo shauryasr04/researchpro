@@ -1,23 +1,12 @@
 # application.py
 from flask import Flask, url_for
 from markupsafe import escape
+from flask import request
+from envs.pythonProject3.Lib.http import cookies
 
 app = Flask(__name__)
-
 @app.route('/')
+def hello():
+    return '<h1> Hello World! How are you doing! </h>'
 def index():
-    return 'index'
-
-@app.route('/login')
-def login():
-    return 'login'
-
-@app.route('/user/<username>')
-def profile(username):
-    return '{}\'s profile'.format(escape(username))
-
-with app.test_request_context():
-    print(url_for('index'))
-    print(url_for('login'))
-    print(url_for('login', next='/'))
-    print(url_for('profile', username='John Doe'))
+    username = cookies.request.get('username')
