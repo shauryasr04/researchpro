@@ -81,6 +81,7 @@ def get_prof_link (name, univ):
     response = requests.get(search_url, headers=headers, params=params)
     response.raise_for_status()
     search_results = response.json()
+    url=""
     try:
         for searchresult in search_results["webPages"]["value"]:
             url = searchresult["url"]
