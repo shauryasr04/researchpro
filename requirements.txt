@@ -3,5 +3,4 @@ flask
 bs4
 spacy
 pandas
-urllib
 markupsafe
