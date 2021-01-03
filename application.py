@@ -2,7 +2,6 @@
 from flask import Flask, url_for
 from markupsafe import escape
 from flask import request
-from envs.pythonProject3.Lib.http import cookies
 
 app = Flask(__name__)
 @app.route('/')
