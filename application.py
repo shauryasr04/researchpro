@@ -63,11 +63,11 @@ def printTohtml(Alist,required_univ):
     #html = html + '<iframe src="https://www.nfl.com/" title="NFL HERE">'
 
     for line in Alist:
-            website = get_prof_link(line, required_univ) 
+        website = get_prof_link(line, required_univ)
+        if(website != ""):
             time.sleep(1)   
             para = '<p>' + "<a href =" + website + ">" + line +  "</a>" +'</p>'
             html = html+ para
-
     # with open(htmlfile, 'w') as f:
         #  f.write(html + "</body>\n</html>")
     return html
@@ -81,13 +81,13 @@ def get_prof_link (name, univ):
     response = requests.get(search_url, headers=headers, params=params)
     response.raise_for_status()
     search_results = response.json()
-    url=""
     try:
         for searchresult in search_results["webPages"]["value"]:
             url = searchresult["url"]
             print(name)
             print(url)
     except:
+        url=""
         print("error")
     return url
 @app.route('/')
