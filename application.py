@@ -7,6 +7,8 @@ from envs.pythonProject3.Lib.http import cookies
 app = Flask(__name__)
 @app.route('/')
 def hello():
-    return '<h1> Hello World! How are you doing! </h>'
-def index():
-    username = cookies.request.get('username')
+    return '<h1> HI Radhika! You are cute </h>'
+
+@app.route('/radzclown')
+def radzclown():
+    return '<h1> Hi radhika, you are a clown </h1>'
