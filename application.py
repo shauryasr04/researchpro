@@ -7,7 +7,7 @@ from envs.pythonProject3.Lib.http import cookies
 app = Flask(__name__)
 @app.route('/')
 def hello():
-    return '<h1> HI Radhika! You are cute </h>'
+    return '<h1> HI Radhika! You are cute </h1>'
 
 @app.route('/radzclown')
 def radzclown():
