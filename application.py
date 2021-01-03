@@ -2,7 +2,6 @@
 from flask import Flask, url_for, render_template
 from markupsafe import escape
 from flask import request
-from envs.pythonProject3.Lib.http import cookies
 import requests
 from requests import get
 from bs4 import BeautifulSoup
