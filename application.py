@@ -57,7 +57,7 @@ def Python_execute (one,two):
 
 def printTohtml(Alist,required_univ):
     import time    
-    html =  "<html>\n<head></head>\n<style>p { margin: 0 !important; }</style><body>"
+    html =  "<html>\n<head></head>\n<style>body { background-color: HoneyDew;} h1 { text-align:center; color: black;} p { margin: 0 !important; text-align:center; color: white;}</style><body>"
     title = "Your Results!"
     html = html+ '<h1>' + title + '</h1>'
     #html = html + '<iframe src="https://www.nfl.com/" title="NFL HERE">'
