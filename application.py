@@ -1,5 +1,7 @@
 # application.py
-from flask import Flask, url_for, render_template
+from flask import Flask, url_for, render_template, app 
+import os
+import jinja2
 from markupsafe import escape
 from flask import request
 import requests
@@ -14,6 +16,8 @@ import urllib.request, urllib.error, urllib.parse
 
 
 app = Flask(__name__)
+template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader (template_dir))
 
 def Python_execute (one,two):
     subscription_key = "5b1d8775f8fd485e9fd2bea8c1d21d16"
@@ -57,21 +61,22 @@ def Python_execute (one,two):
 
 def printTohtml(Alist,required_univ):
     import time    
-    html =  "<html>\n<head></head>\n<style>body { background-color: HoneyDew;} h1 { text-align:center; color: black;} p { margin: 0 !important; text-align:center; color: white;}</style><body>"
+    html =  "<html>\n<head></head>\n<style> body { background-color: HoneyDew;} h1 { text-align:center; color: black;} p { margin: 0 !important; text-align:center; color: white;}</style>"
     title = "Your Results!"
     html = html+ '<h1>' + title + '</h1>'
     #html = html + '<iframe src="https://www.nfl.com/" title="NFL HERE">'
 
     for line in Alist:
+        likedprofname = ""
         website = get_prof_link(line, required_univ)
         if(website != ""):
             time.sleep(1)   
-            para = '<p>' + "<a href =" + website + ">" + line +  "</a>" +'</p>'
-            html = html+ para
+            para = '<p>' + "<a href =" + website + ">" + line +  "</a>" +'"        " <button type = "button" onclick= alert("Added to Liked List") > Like </button> </p>'
+            html = html+ para 
     # with open(htmlfile, 'w') as f:
         #  f.write(html + "</body>\n</html>")
     return html
-
+              
 def get_prof_link (name, univ):
     subscription_key = "5b1d8775f8fd485e9fd2bea8c1d21d16"
     search_url = "https://api.bing.microsoft.com/v7.0/search"
@@ -92,7 +97,8 @@ def get_prof_link (name, univ):
     return url
 @app.route('/')
 def home():
-    return render_template("home.html")
+    template = jinja_env.get_template("templatetrial.html")
+    return template.render()
 
 @app.route('/about')
 def about():
@@ -103,7 +109,9 @@ def action():
     input_one = request.args["ffield"] 
     input_two = request.args["funiv"]
     input_three = Python_execute(input_one, input_two)
-    return printTohtml(input_three, input_two)
+    templatenew = jinja_env.get_template("TTcopy.html")
+    #return printTohtml(input_three, input_two)
+    return templatenew.render('TTcopy.html' , Alist = input_three, required_univ = input_two)
 
 if __name__ == "__main__":
     app.run(debug=True)

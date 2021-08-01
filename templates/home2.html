@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ResearchPro TM</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the side navigation */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(23, 247, 247);
+  overflow-x: hidden;
+}
+
+
+/* Side navigation links */
+.sidenav a {
+  color: rgb(0, 0, 0);
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: rgb(15, 78, 43);
+  color: black;
+}
+
+/* Style the content */
+.content {
+  margin-left: 200px;
+  padding-left: 20px;
+}
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 23.33%;
+  padding: 15px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:200px) {
+  .column {
+    width: 60%;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background-color: #49c7ee;
+  color: #070707;
+  padding: 3 px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+</div>
+
+<div class="content">
+  <h1>ResearchPro : An Educational Tool to Secure your Success</h1>
+  <h2>Enter your Field and School of Choice!</h2>
+  <p> Enter your field and college of choice to get a list of 5-10 professors that you can contact for an internship!
+    <b>For any errors, please report to shauryasr059@gmail.com</b> </p>
+<form action="/action_page" style="align-items: center;">
+    <label for="fname">Field of Choice:</label><br>
+    <input type="text" id="ffield" name="ffield" value="Name of Field"><br>
+    <label for="lname">University of Choice:</label><br>
+    <input type="text" id="funiv" name="funiv" value="Name of University"><br><br>
+    <input type="submit" value="Submit">
+</form>
+</div>
+</body>
+</html>

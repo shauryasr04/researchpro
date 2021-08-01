@@ -2,22 +2,73 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to ResearchPro!</title>
   </head>
-  <body style="background-color: rgba(255, 238, 0, 0.349);">
+  <style>
+    
+    p{
+      align-items:center;
+      text-align: justify;
+    }
+    form{
+      align-items: center;
+    }
+    button{
+      align-self: center;
+      align-items: center;
+    }
+    label{
+      align-items: center;
+    }
+    h2{
+      align-items: center;
+    }
+    h1{
+      align-items: center;
+    }
+  </style>
+  <body style="background-color: rgb(255, 255, 255);">
     {% extends "template.html" %}
     {% block content %}
+    <div class="header">
+      <h1>ResearchPro</h1>
+    </div>
     
-    <h1> Enter your Field and School of Choice! </h1>
-    <p> Enter your field and college of choice to get a list of 5-10 professors that you can contact for an internship!
-        <b>For any errors, please report to shauryasr059@gmail.com</b> </p>
-    <form action="/action_page">
-        <label for="fname">Field of Choice:</label><br>
-        <input type="text" id="ffield" name="ffield" value="Name of Field"><br>
-        <label for="lname">University of Choice:</label><br>
-        <input type="text" id="funiv" name="funiv" value="Name of University"><br><br>
-        <input type="submit" value="Submit">
-    </form>
+    <div class="row">
+      <div class="col-3 col-s-3 menu">
+        <ul>
+          <li><a href="LikedHist.html"></a>Liked History</li>
+          <li>About Creators</li>
+          <li>Research Guide</li>
+        </ul>
+            <h2 style="align-items: center;">Purpose</h2>
+            <p> In order to boost their applications, many aspiring high school students want to increase their interest in their field by finding internships with professors at various institutions. Many look through websites such as Indeed, LinkedIN, and others, but no website can offer them the direct matches that they desire. Fortunately, ResearchPro can match those desires. By searching for them, it can save high school students the annoying process of searching for a professor suitable to their needs!</p>
+      </div>
+    
+      <div class="col-6 col-s-9">
+        <h1> Enter your Field and School of Choice! </h1>
+        <p> Enter your field and college of choice to get a list of 5-10 professors that you can contact for an internship!
+            <b>For any errors, please report to shauryasr059@gmail.com</b> </p>
+        <form action="/action_page" style="align-items: center;">
+            <label for="fname">Field of Choice:</label><br>
+            <input type="text" id="ffield" name="ffield" value="Name of Field"><br>
+            <label for="lname">University of Choice:</label><br>
+            <input type="text" id="funiv" name="funiv" value="Name of University"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+      </div>
+    
+      <div class="col-3 col-s-12">
+        <div class="aside">
+          <h2>What?</h2>
+          <p>ResearchPro is a wesbite created so that high school students can find the right professors \n to reach out to for possible internships and other experiences!
+          </p>
+          <h2>How do you use this?</h2>
+          <p>Simply enter your field of interest and school in the boxes provided and wait for your results!</p>
+        </div>
+      </div>
+    </div>
     
     {% endblock %}
   </body>
