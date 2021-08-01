@@ -1,4 +1,5 @@
 # application.py
+from typing import Dict
 from flask import Flask, url_for, render_template, app 
 import os
 import jinja2
@@ -13,11 +14,11 @@ import en_core_web_lg
 import pandas as pd
 import urllib.request, urllib.error, urllib.parse
 
-
-
 app = Flask(__name__)
-template_dir = os.path.join(os.path.dirname(__file__), 'templates')
-jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader (template_dir))
+class ProfInfo:
+    def __init__(self, name , link):
+        self.name = name
+        self.link = link
 
 def Python_execute (one,two):
     subscription_key = "5b1d8775f8fd485e9fd2bea8c1d21d16"
@@ -76,6 +77,14 @@ def printTohtml(Alist,required_univ):
     # with open(htmlfile, 'w') as f:
         #  f.write(html + "</body>\n</html>")
     return html
+
+def GetProfData(Alist, required_univ):
+    profInfoArray =[]
+    for line in Alist:
+        website = get_prof_link(line, required_univ)
+        profInfo = ProfInfo(line,website)
+        profInfoArray.append(profInfo)
+    return profInfoArray
               
 def get_prof_link (name, univ):
     subscription_key = "5b1d8775f8fd485e9fd2bea8c1d21d16"
@@ -97,8 +106,7 @@ def get_prof_link (name, univ):
     return url
 @app.route('/')
 def home():
-    template = jinja_env.get_template("templatetrial.html")
-    return template.render()
+    return render_template("templatetrial.html")
 
 @app.route('/about')
 def about():
@@ -109,9 +117,9 @@ def action():
     input_one = request.args["ffield"] 
     input_two = request.args["funiv"]
     input_three = Python_execute(input_one, input_two)
-    templatenew = jinja_env.get_template("TTcopy.html")
-    #return printTohtml(input_three, input_two)
-    return templatenew.render('TTcopy.html' , Alist = input_three, required_univ = input_two)
+    profInfoArray= GetProfData(input_three,input_two)
+    return render_template('TTcopy.html', profInfoList = profInfoArray)
 
 if __name__ == "__main__":
     app.run(debug=True)
+    

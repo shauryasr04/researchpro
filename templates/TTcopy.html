@@ -129,8 +129,10 @@ body, html {
 <div class="col-6 col-s-9" style="text-align: center;">
   <h1> Enter your Field and School of Choice! </h1>
   <p> Enter your field and college of choice to get a list of 5-10 professors that you can contact for an internship! </p>
-  {% if Alist %}
-  <!-- <h1>{{printTohtml(Alist,required_univ)}}</h1> -->
+  {% if profInfoList %}
+    {% for profinfo in profInfoList %}
+      <p> <a href='{{profinfo.link}}' >{{profinfo.name}}</a> </p>
+    {% endfor %}
   {% endif %}
 </div>
 <!-- About Section -->
