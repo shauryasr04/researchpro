@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel= "shortcut icon" type="image/png" href="https://www.pngplay.com/wp-content/uploads/1/Letter-R-PNG-Stock-Photo.png">
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
@@ -76,9 +77,31 @@ body, html {
 .w3-bar .w3-button {
   padding: 16px;
 }
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-right: 16px solid green;
+  border-bottom: 16px solid red;
+  border-left: 16px solid pink;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 </style>
 <body>
-
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
@@ -132,11 +155,21 @@ body, html {
   <form action="/action_page" style="align-items: center;">
       <label for="fname">Field of Choice:</label><br>
       <input type="text" id="ffield" name="ffield" value="Name of Field"><br>
-      <label for="lname">University of Choice:</label><br>
-      <input type="text" id="funiv" name="funiv" value="Name of University"><br><br>
+      <label for="lname">Pick a University From the List Below:</label><br>
+      <!-- <input type="text" id="funiv" name="funiv" value="Name of University"><br><br> -->
       <!-- <button type="submit" onclick="myFunction('/action_page')">Submit</button> -->
-      <input type="submit" value="Submit"> 
+      <label for="lname">Universities:</label>
+        <select id="funiv" name="funiv">
+          <option value="Choose a University">Choose a University</option>
+          <option value="Duke">Duke</option>
+          <option value="UCLA">UCLA</option>
+          <option value="Uchicago">Uchicago</option>
+          <option value="UPENN">UPENN</option>
+        </select>
+    <button type="submit" id="btn" class="sbtn btn btn-secondary btn-c">Submit</button>
   </form>
+
+  
   
 </div>
 <!-- About Section -->
@@ -281,6 +314,15 @@ function w3_open() {
   } else {
     mySidebar.style.display = 'block';
   }
+}
+//For the Loading Icon in the Website
+  function spinner() {
+	const spinnerDisplayer = document.querySelector('.spinner-displayer');
+	const btn = document.getElementById('btn');
+
+	btn.addEventListener('click', () => {
+  	spinnerDisplayer.classList.add('loading');
+  })
 }
 
 // Close the sidebar with the close button

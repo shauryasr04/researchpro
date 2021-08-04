@@ -13,12 +13,17 @@ from spacy import displacy
 import en_core_web_lg
 import pandas as pd
 import urllib.request, urllib.error, urllib.parse
+import numpy as np
 
 app = Flask(__name__)
 class ProfInfo:
     def __init__(self, name , link):
         self.name = name
         self.link = link
+
+def unique(list1):
+    x = np.array(list1)
+    return (np.unique(x))
 
 def Python_execute (one,two):
     subscription_key = "5b1d8775f8fd485e9fd2bea8c1d21d16"
@@ -36,6 +41,7 @@ def Python_execute (one,two):
     nlp = spacy.load('en_core_web_lg')
     counter =0
     listofNames =[]
+    listofNamesBN = []
     for searchresult in search_results["webPages"]["value"]:
         url = searchresult["url"]
         print(url)
@@ -57,8 +63,14 @@ def Python_execute (one,two):
                     listofNames.append(ent.text)
         except:
             print("ERROR HAPPENED")
-    listofNames_edited = listofNames[:10]
-    return listofNames_edited
+        for i in range(len(listofNames)):
+            doc2 = nlp(listofNames[i])
+            for ent in doc2.ents:
+                if(ent.label_== 'PERSON'):
+                    listofNamesBN.append(ent.text)
+    listofNames_edited = listofNamesBN[:10]
+    listofNames_FINAL = unique(listofNames_edited)
+    return listofNames_FINAL
 
 def printTohtml(Alist,required_univ):
     import time    

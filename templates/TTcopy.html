@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
-<title>ResearchPro</title>
+<title>Results</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel= "shortcut icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6NkDAnrrTtUTZ-2FpprrlX0KFfCgXgk8EDA&usqp=CAU">
+
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
@@ -69,7 +71,6 @@ body, html {
 .bgimg-1 {
   background-position: center;
   background-size: cover;
-  background-image: url("https://edsurge.imgix.net/uploads/post/image/13610/diverse_students_for_workforce-1597255295.jpg?auto=compress%2Cformat&w=640&h=259&fit=crop");
   min-height: 100%;
 }
 
@@ -107,13 +108,12 @@ body, html {
   <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
 </nav>
 
-<!-- Header with full-height image -->
+<!-- Header with full-height image 
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
   <div class="w3-display-left w3-text-white" style="padding:48px">
-    <span class="w3-jumbo w3-hide-small">Get started on your journey</span><br>
-    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Get started on your journey</span><br>
-    <span class="w3-large">A tool to maximize your oppurtunities</span>
-    <p><a href="#process" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Get started now!</a></p>
+    <span class="w3-jumbo w3-hide-small">The next step to your journey starts here..</span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">The next step to your journey starts here....</span><br>
+    <p><a href="#process" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">View Your Results</a></p>
   </div> 
   <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
@@ -124,18 +124,20 @@ body, html {
     <i class="fa fa-linkedin w3-hover-opacity"></i>
   </div>
 </header>
+-->
 <!-- Inputer Section-->
 <div class="w3-container" style="padding:128px 16px" id="process">
 <div class="col-6 col-s-9" style="text-align: center;">
-  <h1> Enter your Field and School of Choice! </h1>
-  <p> Enter your field and college of choice to get a list of 5-10 professors that you can contact for an internship! </p>
+  <h1> Your Results! </h1>
+  <a href = "/#process" class="w3-button w3-black w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Back to Home</a>
+  <p> Here are the list of professors you can contact! Click on their name to visit their page!</p>
   {% if profInfoList %}
     {% for profinfo in profInfoList %}
       <p> <a href='{{profinfo.link}}' >{{profinfo.name}}</a> </p>
     {% endfor %}
   {% endif %}
 </div>
-<!-- About Section -->
+<!-- About Section 
 <div class="w3-container" style="padding:128px 16px" id="about">
   <h3 class="w3-center">About ResearchPro</h3>
   <div class="w3-row-padding w3-center" style="margin-top:64px">
@@ -161,9 +163,9 @@ body, html {
     </div>
   </div>
 </div>
+-->
 
-
-<!-- Team Section -->
+<!-- Team Section 
 <div class="w3-container" style="padding:128px 16px" id="team" style="text-align: center;" >
   <h3 class="w3-center">MEET THE CREATOR</h3>
   <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
@@ -179,7 +181,7 @@ body, html {
       </div>
     </div>
   </div>
-</div>
+</div>-->
 
 <!-- Promo Section "Statistics" keeping this sidelined for the time being
 <div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
