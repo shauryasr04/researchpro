@@ -132,6 +132,9 @@ def action():
     profInfoArray= GetProfData(input_three,input_two)
     return render_template('TTcopy.html', profInfoList = profInfoArray)
 
+@app.route('/design_page')
+def design():
+    return render_template('design.html')
 if __name__ == "__main__":
     app.run(debug=True)
     
